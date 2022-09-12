@@ -149,14 +149,21 @@ HDFS采用了主从（Master/Slave）结构模型，一个HDFS集群是由一个
 
 &nbsp;&nbsp;&nbsp;&nbsp;Trash目录
 
-&nbsp;&nbsp;&nbsp;&nbsp;<property>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<name>fs.trash.interval</name>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<value>1440</value>
-&nbsp;&nbsp;&nbsp;&nbsp;</property>
-&nbsp;&nbsp;&nbsp;&nbsp;<property>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<name>fs.trash.checkpoint.interval</name>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<value>1440</value>
-&nbsp;&nbsp;&nbsp;&nbsp;</property>
+&nbsp;&nbsp;&nbsp;&nbsp;\<property\>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<name\>fs.trash.interval\</name\>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<value\>1440\</value\>
+
+&nbsp;&nbsp;&nbsp;&nbsp;\</property\>
+
+&nbsp;&nbsp;&nbsp;&nbsp;\<property\>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<name\>fs.trash.checkpoint.interval\</name\>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<value\>1440\</value\>
+
+&nbsp;&nbsp;&nbsp;&nbsp;\</property\>
 
 &nbsp;&nbsp;fs.trash.interval是在指在这个回收周期之内，文件实际上是被移动到trash的这个目录下面，而不是马上把数据删除掉。等到回收周期真正到了以后，hdfs才会将数据真正删除。默认的单位是分钟，1440分钟=60\*24，刚好是一天。 
 fs.trash.checkpoint.interval则是指垃圾回收的检查间隔，应该是小于或者等于fs.trash.interval。
